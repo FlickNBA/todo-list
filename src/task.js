@@ -1,4 +1,4 @@
-class Task {
+export class Task {
   constructor(title, description, dueDate, priority, notes) {
     this.title = title;
     this.description = description;
@@ -7,21 +7,28 @@ class Task {
     this.notes = notes;
     this.type = "Task";
   }
-  // I won't be used
+
+  get info() {
+    return `Task: ${this.title}
+Description: ${this.description}
+Due date: ${this.dueDate}
+Priority: ${this.priority}/5
+Notes: ${this.notes}
+Type: ${this.type}`;
+  }
 }
 
-export class MainTask extends Task {
+export class TaskWithSubtasks extends Task {
   constructor(title, description, dueDate, priority, notes, subtasks) {
     super(title, description, dueDate, priority, notes);
     this.subtasks = subtasks;
-    this.type = "MainTask";
+    this.type = "TaskWithSubtasks";
   }
 }
 
 export class SubTask extends Task {
-  constructor(title, description, dueDate, priority, notes, subtasks) {
+  constructor(title, description, dueDate, priority, notes) {
     super(title, description, dueDate, priority, notes);
-    this.subtasks = subtasks;
     this.type = "SubTask";
   }
 }

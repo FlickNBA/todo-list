@@ -1,11 +1,11 @@
 export class Project {
-  constructor(name, description, todos) {
+  constructor(name, description, tasks) {
     this.name = name;
     this.description = description;
-    this.todos = todos;
+    this.tasks = tasks;
   }
 
   get info() {
-    return `This project is called "${this.name}" and has "${this.description}" description.`;
+    return `This project is called "${this.name}" and has "${this.description}" description. It has ${this.tasks.length} tasks.`;
   }
 }

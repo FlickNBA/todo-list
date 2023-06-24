@@ -3,49 +3,35 @@ import "./reset.css";
 import "./main.css";
 
 import { Project } from "./project";
-import { MainTask, SubTask } from "./task";
+import { Task, TaskWithSubtasks, SubTask } from "./task";
+import { showProject } from "./showProject";
 
-// const testSubtasksAsText = [
-//   ["Turn AC on", "22 C is the best.", "", 4, ""],
-//   ["Make weak milk coffee", "Need to be careful with caffeine before doing next step!", "", 3, ""],
-//   ["Take Modafinil", "It is what it is", "", 5, "Should kick in in about 2 hours"],
-// ];
+let ST1 = new SubTask("Turn AC on", "22 C is the best.", "", 4, "");
+let ST2 = new SubTask("Make weak milk coffee", "Need to be careful with caffeine before doing next step!", "", 3, "");
+let ST3 = new SubTask("Take Modafinil", "It is what it is", "", 5, "Should kick in in about 2 hours");
 
-const preparingSubtasks = [new SubTask("Turn AC on", "22 C is the best.", "", 4, ""), new SubTask("Make weak milk coffee", "Need to be careful with caffeine before doing next step!", "", 3, ""), new SubTask("Take Modafinil", "It is what it is", "", 5, "Should kick in in about 2 hours")];
+let ST4 = new SubTask("Do 1 Exercism task", "", "", 2, "");
 
-preparingSubtasks.forEach((subtask) => {
-    
-})
+let ST5 = new SubTask("Do 1 CodeWars task", "", "", 3, "");
 
-// const defaultLearningTasks = [
-//   ["Prepare for learning", "Good preparation is always worth it", ""],
-//   ["Read last chapter", "Check if you know what you learned before", "", 5, "It might seem boring but it's important"],
-//   ["Do 1 Exercism and 1 CodeWars task", "", "", 4, "It will pay off some time."],
-// ];
+let T1 = new TaskWithSubtasks("Prepare for learning", "Good preparation is always worth it", "", 5, "", [ST1, ST2, ST3]);
 
-// // const defaultProjects = [
-// //   ["Learning", "Tasks for The Odin Project", ""],
-// //   ["Working", "Tasks for my job", ""],
-// // ];
+let T2 = new Task("Read last chapter of TOP", "Check if you know what you learned before", "", 5, "It might seem boring but it's important");
 
-// // let projects = [];
+let T3 = new TaskWithSubtasks("Do JS exercises", "", "", 4, "It will pay off in future", [ST4, ST5]);
 
-// // defaultProjects.forEach((data, index) => {
-// //   projects.push(new Project(...data));
-// // });
+let T4 = new Task("Start learning", "Open next chapter and start reading", "", 5, "");
 
-// // projects.forEach((project) => {
-// //   console.log(project.info);
-// // });
+console.log(T1);
 
-// let exampleMainTask = new MainTask("Main Task 1", "DDD", "", 5, "None", "subtasks array");
+console.log(T2);
 
-// console.log(exampleMainTask);
+console.log(T3);
 
-// let exampleSubTask = new SubTask("Sub Task 1", "DDD", "", 5, "None");
+console.log(T4);
 
-// console.log(exampleSubTask);
+let learningProject = new Project("Learning", "TOP is difficult but worth it.", [T1, T2, T3, T4]);
 
-// // let exampleSubTask = new SubTask();
+console.log(learningProject.info);
 
-// // let exampleMainTask = new MainTask();
+showProject(learningProject);
